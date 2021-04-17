@@ -10,7 +10,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sass|scss|css)$/,
         use: [
           {
             loader: "style-loader",
@@ -21,13 +21,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|woff|ttf|woff2|eot|svg)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
+            options: {
+              name: './src/assets/images/[name].[ext]'
+            }
           },
         ],
-      },
+      }
     ],
   },
   plugins: [
